@@ -1,0 +1,146 @@
+seed: 42
+
+paths:
+  raw_csv: data/raw/MiningProcess_Flotation_Plant_Database.csv
+  processed_dir: data/processed
+  hourly_parquet: data/processed/hourly.parquet
+  models_dir: models
+  figures_dir: reports/figures
+  mlruns_dir: mlruns          # almacén de artefactos de MLflow
+  tracking_db: mlflow.db      # backend SQLite de MLflow (tracking + model registry)
+
+data:
+  decimal: ","
+  date_col: date
+  target: "% Silica Concentrate"
+  # Mismo ensayo de laboratorio que el target (se mide junto con él y solo está
+  # disponible después del resultado): usarlo como feature es fuga. Excluido del modelo.
+  leakage_excluded:
+    - "% Iron Concentrate"
+  # Mediciones de laboratorio del alimento: entradas válidas del proceso (conocidas
+  # antes del resultado), constantes dentro de cada hora.
+  feed_cols:
+    - "% Iron Feed"
+    - "% Silica Feed"
+  # Sensores de proceso de alta frecuencia (~20 s) agregados a estadísticas horarias.
+  sensor_cols:
+    - "Starch Flow"
+    - "Amina Flow"
+    - "Ore Pulp Flow"
+    - "Ore Pulp pH"
+    - "Ore Pulp Density"
+    - "Flotation Column 01 Air Flow"
+    - "Flotation Column 02 Air Flow"
+    - "Flotation Column 03 Air Flow"
+    - "Flotation Column 04 Air Flow"
+    - "Flotation Column 05 Air Flow"
+    - "Flotation Column 06 Air Flow"
+    - "Flotation Column 07 Air Flow"
+    - "Flotation Column 01 Level"
+    - "Flotation Column 02 Level"
+    - "Flotation Column 03 Level"
+    - "Flotation Column 04 Level"
+    - "Flotation Column 05 Level"
+    - "Flotation Column 06 Level"
+    - "Flotation Column 07 Level"
+  agg_funcs:
+    - "mean"
+    - "std"
+    - "min"
+    - "max"
+
+features:
+  sensor_lags: [1, 2, 3]        # horas; lags de las medias horarias de sensores
+  rolling_windows: [3, 6]       # horas; medias móviles pasadas de sensores
+  add_time_features: true       # hora del día en codificación cíclica
+  # Retraso de laboratorio asumido ~1 h: la sílice de horas previas ya está disponible
+  # al predecir, por lo que los lags estrictamente pasados del target son válidos (no
+  # son fuga). El lag de 1 h es por lejos el predictor dominante; las variables de
+  # proceso solas explican ~6% de la varianza horaria (ver notebook 02). Todos los lags
+  # usan shift >= 1 (solo pasado).
+  use_target_lags: true
+  target_lags: [1, 2, 3]
+  # Features extendidos (Frente A). Se calculan sin tocar el conjunto de filas del
+  # frame base: los NaN de calentamiento quedan en las columnas nuevas (LightGBM y
+  # XGBoost los manejan de forma nativa; los modelos lineales imputan con mediana).
+  ewm_halflives: [2, 6, 12]     # horas; suavizado exponencial de sensores y feeds
+  add_diffs: true               # cambio 1 h y pendiente 3 h de sensores y feeds
+  add_target_dynamics: true     # momentum y rolling de lags estrictamente pasados
+  target_rolling_windows: [6, 12]
+  add_cross_aggregates: true    # agregados transversales de las 7 columnas de flotación
+  add_ratios: true              # ratios con sentido metalúrgico (reactivo/pulpa, aire/pulpa)
+  # Lista podada por permutation importance sobre validación (null = usar todas).
+  selected_features_file: models/selected_features.json
+
+split:
+  # Partición cronológica sin shuffle.
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+cv:
+  n_splits: 5                   # folds walk-forward para tuning y comparación de esquemas
+  gap_hours: 3                  # purga entre train y val de cada fold (los lags del
+                                # target llegan hasta 3 h, así ninguna ventana se solapa)
+  scheme: expanding_gap         # esquema usado para seleccionar (ver notebook 02)
+
+models:
+  # Parámetros de referencia (modelos de nivel, pre-tuning).
+  lightgbm:
+    n_estimators: 3000
+    learning_rate: 0.03
+    num_leaves: 63
+    max_depth: -1
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.8
+    reg_lambda: 1.0
+    min_child_samples: 40
+    early_stopping_rounds: 150
+  xgboost:
+    n_estimators: 3000
+    learning_rate: 0.03
+    max_depth: 6
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_lambda: 1.0
+    min_child_weight: 5
+    early_stopping_rounds: 150
+  # Parámetros tuneados con Optuna (TPE, objetivo: MAE walk-forward con purga en
+  # train+val; ver scripts/tune_models.py y reports/tuning/).
+  lightgbm_delta:
+    n_estimators: 2500
+    learning_rate: 0.04544357489189295
+    num_leaves: 208
+    max_depth: 9
+    min_child_samples: 48
+    subsample: 0.9844456492068678
+    subsample_freq: 1
+    colsample_bytree: 0.6216187180972392
+    reg_alpha: 7.5567745015448615
+    reg_lambda: 0.14243540873596394
+    early_stopping_rounds: 100
+  xgboost_delta:
+    n_estimators: 2500
+    learning_rate: 0.01149070971227759
+    max_depth: 8
+    min_child_weight: 44.66958203871956
+    subsample: 0.5935538578790258
+    colsample_bytree: 0.7121664825226076
+    reg_alpha: 7.275871995577819
+    reg_lambda: 0.11356118184648713
+    early_stopping_rounds: 100
+
+# Modelo seleccionado (ver notebook 02): LightGBM sobre el delta de la sílice, con
+# parámetros de Optuna y el set de features podado por permutation importance más las
+# palancas operativas de la hora actual. fit_winner, la API, el grafo y los notebooks
+# 03-05 leen este bloque, así que cambiar el ganador aquí propaga todo el flujo.
+winner:
+  family: lightgbm
+  representation: delta
+  params_key: lightgbm_delta
+  use_selected_features: true
+
+mlflow:
+  experiment_name: "mining-silica-quality"
+  registered_model_name: "silica-concentrate-regressor"

@@ -1,0 +1,17 @@
+{
+  "family": "xgboost",
+  "representation": "level",
+  "cv_mae_mean": 0.5304850753300382,
+  "cv_mae_std": 0.10395191902622299,
+  "params": {
+    "learning_rate": 0.05580090981460675,
+    "max_depth": 4,
+    "min_child_weight": 42.83863341570417,
+    "subsample": 0.5188498188567278,
+    "colsample_bytree": 0.854658735737792,
+    "reg_alpha": 4.526346011156551,
+    "reg_lambda": 0.0010292990682611344,
+    "n_estimators": 2500,
+    "early_stopping_rounds": 100
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción Sílice - Planta Flotación</title>
+    <!-- Minsur Typography: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <!-- Custom ES Modules -->
+    <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="assets/logo-minsur.png" alt="Logo Minsur" class="logo">
+            <h1>Predicción de calidad - Planta de flotación</h1>
+        </div>
+        <div class="navbar-status">
+            <span class="badge" id="status-badge">Conectando...</span>
+            <span class="badge" id="model-source-badge">Cargando modelo...</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 1. Predicción -->
+        <section id="prediction-section" class="panel">
+            <header class="panel-header">
+                <h2>1. Predicción Operativa</h2>
+                <div class="settings">
+                    <label for="threshold-input">Umbral de alerta (% Sílice):</label>
+                    <input type="number" id="threshold-input" value="2.0" step="0.1" min="1.0" max="5.0">
+                </div>
+            </header>
+            
+            <div class="grid-2-cols">
+                <!-- Formulario -->
+                <div class="card form-card">
+                    <h3>Variables de Operación</h3>
+                    <form id="prediction-form" class="form-grid"></form>
+                    <div class="form-actions">
+                        <button type="button" id="btn-predict" class="btn btn-primary">Predecir Calidad</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div class="card result-card">
+                    <h3>Pronóstico para la próxima hora</h3>
+                    <div class="prediction-display">
+                        <div class="prediction-value" id="pred-silica">--%</div>
+                        <div class="prediction-context">
+                            <span class="uncertainty" id="pred-uncertainty">±0.46 MAE</span>
+                            <span class="diff" id="pred-diff">vs última: --</span>
+                        </div>
+                    </div>
+                    <div class="traffic-light" id="traffic-light">
+                        <div class="light" id="tl-green"></div>
+                        <div class="light" id="tl-amber"></div>
+                        <div class="light" id="tl-red"></div>
+                    </div>
+                    <div class="status-message" id="tl-message">Esperando predicción...</div>
+                    
+                    <div class="shap-container">
+                        <h4>Drivers de la Predicción (SHAP)</h4>
+                        <canvas id="shap-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Simulador What-If -->
+        <section id="simulator-section" class="panel">
+            <header class="panel-header">
+                <h2>2. Simulador What-If</h2>
+                <button type="button" id="btn-reset-sim" class="btn btn-outline">Resetear a Base</button>
+            </header>
+            <p class="warning-text">El modelo es asociativo, las trayectorias son aproximaciones direccionales, no garantías de control.</p>
+            
+            <div class="grid-2-cols">
+                <!-- Sliders -->
+                <div class="card sliders-card" id="simulator-sliders">
+                    <!-- Generados dinámicamente -->
+                </div>
+
+                <!-- Gráficos -->
+                <div class="card charts-card">
+                    <h3>Efecto Sostenido (8h)</h3>
+                    <canvas id="sim-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Informe del Analista (Agente) -->
+        <section id="report-section" class="panel">
+            <header class="panel-header">
+                <h2>3. Informe del Analista</h2>
+                <button type="button" id="btn-report" class="btn btn-primary">Generar informe</button>
+            </header>
+            <div class="card report-card">
+                <div id="report-loading" class="hidden">Analizando contexto y simulando escenarios...</div>
+                <div id="report-content" class="report-markdown">
+                    <p class="placeholder-text">Haga clic en "Generar informe" para evaluar el punto de operación actual y los escenarios posibles.</p>
+                </div>
+                <div class="report-meta hidden" id="report-meta">
+                    <span class="badge" id="report-source-badge"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Acerca del Modelo -->
+        <section id="about-section" class="panel">
+            <header class="panel-header">
+                <h2>Acerca del Modelo</h2>
+            </header>
+            <div class="card about-card">
+                <div class="metrics-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modelo / baseline</th>
+                                <th>MAE val</th>
+                                <th>MAE test</th>
+                                <th>R² test</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Persistencia 1 h</td>
+                                <td>0.3959</td>
+                                <td>0.4727</td>
+                                <td>0.5969</td>
+                            </tr>
+                            <tr class="winner-row">
+                                <td>LightGBM delta podado</td>
+                                <td>0.3883</td>
+                                <td>0.4599</td>
+                                <td>0.6221</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="decisions">
+                    <div class="decision-card">
+                        <h4>Agregación Horaria</h4>
+                        <p>Las 19 señales se agregan por hora. La resolución informativa real es horaria.</p>
+                    </div>
+                    <div class="decision-card">
+                        <h4>Sin % Iron Concentrate</h4>
+                        <p>Excluido para evitar fuga de datos, ya que se obtiene del mismo ensayo que la sílice.</p>
+                    </div>
+                    <div class="decision-card">
+                        <h4>Validación Temporal</h4>
+                        <p>Split cronológico con purga de 3h. No se usa K-Fold aleatorio para evitar filtrar futuro.</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="/docs" target="_blank" class="link">Documentación API</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Predicción de Calidad - Planta de Flotación © Minsur</p>
+    </footer>
+</body>
+</html>

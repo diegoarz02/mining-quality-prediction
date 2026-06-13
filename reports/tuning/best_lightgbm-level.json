@@ -1,0 +1,19 @@
+{
+  "family": "lightgbm",
+  "representation": "level",
+  "cv_mae_mean": 0.5313615607645719,
+  "cv_mae_std": 0.09497210669105245,
+  "params": {
+    "learning_rate": 0.036953386158965734,
+    "num_leaves": 22,
+    "max_depth": 4,
+    "min_child_samples": 72,
+    "subsample": 0.8129489216845408,
+    "colsample_bytree": 0.9807983923171678,
+    "reg_alpha": 0.39081281257449735,
+    "reg_lambda": 4.059932692324546,
+    "n_estimators": 2500,
+    "early_stopping_rounds": 100,
+    "subsample_freq": 1
+  }
+}

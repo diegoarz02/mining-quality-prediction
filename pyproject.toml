@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mining-quality-prediction"
+version = "0.1.0"
+description = "Hourly % Silica Concentrate prediction for a froth flotation plant"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+packages = [
+    "src",
+    "src.data",
+    "src.features",
+    "src.models",
+    "src.explain",
+    "src.simulation",
+    "src.reasoning",
+    "api",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

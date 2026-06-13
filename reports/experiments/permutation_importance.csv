@@ -1,0 +1,310 @@
+,0
+% Silica Concentrate__lag1h,0.7072050839034013
+% Silica Concentrate__mom1h,0.008519889741930598
+% Silica Concentrate__lag2h,0.002292332519965434
+% Silica Concentrate__lagroll12h_std,0.0008332559196874145
+Flotation Column 02 Air Flow__mean__slope3h,0.0005936680346337097
+Flotation Column 04 Air Flow__mean__ewm12h,0.0005730655298016973
+Flotation Column 06 Air Flow__mean__lag1h,0.0005005034666105135
+Flotation Column 06 Level__mean__slope3h,0.0003927196883210859
+Flotation Column 04 Air Flow__mean__lag2h,0.0003807402080770461
+Ore Pulp Flow__mean__ewm6h,0.00035497113694218376
+Ore Pulp Flow__mean__lag2h,0.0003343258969884633
+Flotation Column 04 Air Flow__mean__ewm6h,0.00028428506183428846
+Flotation Column 03 Air Flow__mean__diff1h,0.0002489835696328657
+Flotation Column 04 Level__min,0.00023009548351720087
+Ore Pulp Density__mean,0.00022456363380154442
+Ore Pulp pH__max,0.00019986218829705084
+Flotation Column 04 Air Flow__mean__ewm2h,0.00019368092100729983
+Ore Pulp Density__mean__lag2h,0.00019256293810004932
+Flotation Column 06 Level__mean__ewm6h,0.0001836401002494825
+Ore Pulp Flow__max,0.00017544156884305995
+hour_sin,0.00017161490251036416
+Flotation Column 01 Air Flow__min,0.00014085934663999878
+ratio_amina_pulp,0.00012597666528397778
+Flotation Column 06 Level__mean__ewm12h,0.0001232561457482517
+Amina Flow__mean__lag2h,0.00011539183125962582
+Flotation Column 01 Level__mean,0.0001147218759000701
+Flotation Column 01 Air Flow__std,0.00011390535678178493
+Ore Pulp Density__std,0.00011177328025354649
+Flotation Column 04 Air Flow__mean__roll6h_mean,0.00011054490016866314
+Flotation Column 05 Level__mean__ewm12h,0.00010869476655462895
+Flotation Column 04 Air Flow__mean__lag1h,0.00010654006103671954
+Amina Flow__mean__lag1h,0.00010616660430136093
+Flotation Column 03 Air Flow__min,0.00010222764442922028
+Ore Pulp pH__mean__lag3h,0.00010195706316907804
+Flotation Column 02 Air Flow__mean__lag2h,8.832456253908827e-05
+Amina Flow__mean__roll3h_mean,8.784217996579135e-05
+Flotation Column 05 Air Flow__mean__lag1h,8.771590345498791e-05
+Flotation Column 03 Air Flow__mean,8.64139262937158e-05
+Flotation Column 03 Level__mean,8.448569847101517e-05
+Flotation Column 02 Level__std,7.93952190869196e-05
+Flotation Column 02 Air Flow__max,7.820007227214987e-05
+Ore Pulp Flow__mean__roll3h_mean,7.739888759039637e-05
+Flotation Column 02 Level__mean__diff1h,7.556495866515301e-05
+Ore Pulp Density__mean__ewm12h,6.595764511148072e-05
+Starch Flow__mean__ewm6h,6.183668650631136e-05
+Starch Flow__max,5.861278814981441e-05
+Starch Flow__std,5.7235228675001085e-05
+Flotation Column 07 Level__mean__ewm12h,5.667080548695802e-05
+Flotation Column 05 Level__std,5.5554700490556555e-05
+Flotation Column 01 Air Flow__mean__slope3h,5.4134676597139555e-05
+Flotation Column 03 Air Flow__mean__lag2h,5.407421508329957e-05
+Flotation Column 02 Level__mean__lag1h,5.161694209067091e-05
+Flotation Column 03 Level__mean__diff1h,5.1053300259673584e-05
+Starch Flow__mean__diff1h,4.2951740836050244e-05
+Flotation Column 06 Level__min,4.0413519917537057e-05
+Flotation Column 04 Air Flow__min,3.916355507420644e-05
+Amina Flow__mean__diff1h,3.894734563887336e-05
+Flotation Column 05 Level__min,3.836706618114416e-05
+Amina Flow__min,3.651957047060561e-05
+Flotation Column 06 Air Flow__mean__lag3h,3.604224209573515e-05
+Flotation Column 07 Air Flow__mean__diff1h,3.173383912223882e-05
+Flotation Column 07 Air Flow__std,2.861326028581468e-05
+Flotation Column 03 Air Flow__max,2.7239433329007135e-05
+Flotation Column 02 Air Flow__mean__diff1h,2.7160574985918284e-05
+Flotation Column 06 Air Flow__mean__roll6h_mean,2.6708570286926304e-05
+Flotation Column 07 Air Flow__mean__roll3h_mean,2.501190583634738e-05
+Flotation Column 03 Level__mean__slope3h,2.1622207248028767e-05
+Flotation Column 02 Air Flow__mean__ewm12h,1.991109205633501e-05
+% Iron Feed__ewm12h,1.9445381370408744e-05
+Ore Pulp Density__mean__lag3h,1.899445708513081e-05
+Flotation Column 07 Air Flow__mean__lag1h,1.6920003035358898e-05
+Flotation Column 06 Level__mean,1.5360716312506904e-05
+Flotation Column 07 Level__min,1.4083044668977695e-05
+Flotation Column 06 Air Flow__mean__diff1h,1.3944597474924159e-05
+Ore Pulp Flow__mean__lag3h,1.3746626185395794e-05
+Flotation Column 02 Level__mean__lag3h,1.3708295887682187e-05
+Flotation Column 04 Level__mean__ewm12h,1.3575498878415359e-05
+Flotation Column 06 Air Flow__mean__ewm2h,1.170430370815989e-05
+Flotation Column 01 Level__mean__roll3h_mean,1.1106880565570076e-05
+Flotation Column 03 Level__std,9.526109807111993e-06
+Flotation Column 03 Air Flow__std,9.046485206543053e-06
+Ore Pulp Density__mean__roll6h_mean,7.397309297774157e-06
+Flotation Column 02 Air Flow__mean__lag1h,6.539848496411871e-06
+Ore Pulp pH__mean__roll3h_mean,6.447599190684272e-06
+Starch Flow__mean__roll3h_mean,6.2716750414693045e-06
+Ore Pulp pH__mean__diff1h,5.80242138065179e-06
+Flotation Column 01 Air Flow__mean__roll3h_mean,5.564752123743411e-06
+Flotation Column 04 Air Flow__max,5.0277219328376255e-06
+Ore Pulp pH__mean__lag2h,4.362871634056021e-06
+Flotation Column 03 Level__mean__ewm2h,4.0246299109814036e-06
+cross_air_flow_min,3.483804055370854e-06
+Amina Flow__mean__ewm6h,3.0982785465427655e-06
+cross_level_std,2.3903377741607557e-06
+Flotation Column 02 Level__mean__ewm2h,8.794732408001771e-07
+Flotation Column 04 Level__max,0.0
+Flotation Column 02 Level__min,0.0
+Flotation Column 04 Level__mean__slope3h,0.0
+Flotation Column 05 Level__mean__slope3h,0.0
+% Iron Feed__slope3h,0.0
+Flotation Column 02 Level__mean__slope3h,0.0
+Flotation Column 05 Air Flow__mean__slope3h,0.0
+% Silica Concentrate__lagroll12h_mean,0.0
+% Silica Feed,0.0
+Flotation Column 04 Level__mean,0.0
+Flotation Column 06 Air Flow__max,0.0
+Flotation Column 04 Air Flow__mean,0.0
+Flotation Column 02 Air Flow__std,0.0
+Flotation Column 06 Air Flow__min,0.0
+Flotation Column 05 Air Flow__max,0.0
+Flotation Column 06 Air Flow__mean,0.0
+Flotation Column 05 Air Flow__mean,0.0
+Flotation Column 05 Air Flow__min,0.0
+% Silica Feed__ewm12h,0.0
+Flotation Column 01 Air Flow__mean__diff1h,0.0
+Ore Pulp Density__mean__diff1h,0.0
+Ore Pulp Flow__mean__diff1h,0.0
+Flotation Column 04 Air Flow__mean__diff1h,0.0
+Flotation Column 04 Level__mean__lag2h,0.0
+Flotation Column 05 Air Flow__mean__lag2h,0.0
+Flotation Column 01 Air Flow__mean__lag2h,0.0
+Flotation Column 06 Air Flow__mean__lag2h,0.0
+Flotation Column 03 Air Flow__mean__lag1h,0.0
+Flotation Column 07 Level__mean__diff1h,0.0
+% Iron Feed__diff1h,0.0
+Flotation Column 02 Level__mean,0.0
+Flotation Column 01 Level__max,0.0
+Flotation Column 01 Level__min,0.0
+Ore Pulp pH__mean__slope3h,0.0
+Ore Pulp pH__mean__lag1h,0.0
+Flotation Column 05 Air Flow__mean__diff1h,0.0
+Flotation Column 04 Level__mean__diff1h,0.0
+Flotation Column 01 Level__mean__diff1h,0.0
+Amina Flow__mean__slope3h,0.0
+% Silica Feed__diff1h,0.0
+Flotation Column 07 Level__max,0.0
+Starch Flow__mean__lag1h,0.0
+Flotation Column 07 Level__mean,0.0
+Flotation Column 06 Level__max,0.0
+% Silica Feed__lag1h,0.0
+Starch Flow__mean__lag2h,0.0
+% Iron Feed__lag1h,0.0
+Flotation Column 07 Level__mean__lag1h,0.0
+Flotation Column 05 Level__mean__lag1h,0.0
+Flotation Column 01 Level__mean__lag1h,0.0
+Flotation Column 07 Air Flow__mean,0.0
+Flotation Column 07 Air Flow__min,0.0
+Flotation Column 07 Air Flow__max,0.0
+Flotation Column 01 Level__std,0.0
+Ore Pulp Density__max,0.0
+Ore Pulp Density__mean__slope3h,0.0
+Flotation Column 07 Air Flow__mean__slope3h,0.0
+Flotation Column 04 Air Flow__mean__slope3h,0.0
+% Iron Feed,0.0
+Flotation Column 04 Air Flow__mean__roll3h_mean,0.0
+% Silica Feed__roll3h_mean,0.0
+Amina Flow__mean__roll6h_mean,0.0
+Flotation Column 01 Level__mean__lag3h,0.0
+Flotation Column 03 Level__mean__lag3h,0.0
+Flotation Column 04 Level__mean__lag3h,0.0
+Flotation Column 05 Level__mean__lag3h,0.0
+Flotation Column 07 Level__mean__roll3h_mean,0.0
+% Iron Feed__roll3h_mean,0.0
+% Silica Feed__lag2h,0.0
+% Iron Feed__lag2h,0.0
+% Iron Feed__lag3h,0.0
+Flotation Column 07 Level__mean__lag3h,0.0
+Flotation Column 06 Level__mean__lag3h,0.0
+% Silica Feed__lag3h,0.0
+Flotation Column 07 Level__mean__lag2h,0.0
+Flotation Column 06 Level__mean__lag2h,0.0
+Amina Flow__mean__lag3h,0.0
+Starch Flow__mean__lag3h,0.0
+Flotation Column 02 Air Flow__mean__lag3h,0.0
+Flotation Column 03 Level__mean__ewm12h,0.0
+Flotation Column 04 Air Flow__mean__lag3h,0.0
+Flotation Column 07 Air Flow__mean__lag3h,0.0
+% Iron Feed__roll6h_mean,0.0
+% Silica Feed__roll6h_mean,0.0
+Ore Pulp pH__mean__ewm2h,0.0
+Starch Flow__mean__ewm2h,0.0
+Flotation Column 02 Air Flow__mean__ewm2h,0.0
+Flotation Column 01 Air Flow__mean__roll6h_mean,0.0
+Ore Pulp pH__mean__roll6h_mean,0.0
+Flotation Column 03 Air Flow__mean__ewm2h,0.0
+Flotation Column 07 Air Flow__mean__roll6h_mean,0.0
+Flotation Column 05 Air Flow__mean__roll6h_mean,0.0
+Flotation Column 06 Level__mean__roll6h_mean,0.0
+Flotation Column 05 Level__mean__roll6h_mean,0.0
+Flotation Column 04 Level__mean__roll6h_mean,0.0
+Flotation Column 03 Level__mean__roll6h_mean,0.0
+Flotation Column 02 Level__mean__roll6h_mean,0.0
+Flotation Column 01 Level__mean__roll6h_mean,0.0
+Flotation Column 05 Air Flow__mean__roll3h_mean,0.0
+Flotation Column 06 Air Flow__mean__roll3h_mean,0.0
+Flotation Column 04 Level__mean__roll3h_mean,0.0
+Flotation Column 03 Level__mean__roll3h_mean,0.0
+Flotation Column 05 Level__mean__roll3h_mean,0.0
+Flotation Column 06 Level__mean__roll3h_mean,0.0
+Flotation Column 03 Air Flow__mean__roll3h_mean,0.0
+Ore Pulp Flow__mean__ewm12h,0.0
+% Iron Feed__ewm6h,0.0
+% Silica Feed__ewm6h,0.0
+Amina Flow__mean__ewm12h,0.0
+Flotation Column 03 Air Flow__mean__ewm12h,0.0
+Flotation Column 07 Air Flow__mean__ewm12h,0.0
+Flotation Column 07 Level__mean__roll6h_mean,0.0
+Flotation Column 01 Level__mean__ewm12h,0.0
+Flotation Column 02 Level__mean__ewm12h,0.0
+Flotation Column 05 Level__mean__ewm6h,0.0
+Flotation Column 07 Level__mean__ewm6h,0.0
+Flotation Column 07 Air Flow__mean__ewm2h,0.0
+Flotation Column 05 Air Flow__mean__ewm2h,0.0
+Flotation Column 01 Level__mean__ewm2h,0.0
+% Silica Feed__ewm2h,0.0
+Flotation Column 06 Level__mean__ewm2h,0.0
+Flotation Column 07 Level__mean__ewm2h,0.0
+% Iron Feed__ewm2h,0.0
+Flotation Column 05 Air Flow__mean__ewm12h,0.0
+Flotation Column 06 Air Flow__mean__ewm12h,0.0
+Flotation Column 01 Air Flow__mean__ewm12h,0.0
+Flotation Column 01 Level__mean__ewm6h,0.0
+Flotation Column 04 Level__mean__ewm6h,0.0
+Flotation Column 02 Level__mean__ewm6h,0.0
+Flotation Column 03 Level__mean__ewm6h,0.0
+ratio_air_total_pulp,0.0
+% Silica Concentrate__lagroll6h_std,0.0
+Flotation Column 02 Air Flow__mean__ewm6h,0.0
+Flotation Column 01 Air Flow__mean__ewm6h,0.0
+Flotation Column 03 Air Flow__mean__ewm6h,0.0
+Flotation Column 07 Air Flow__mean__ewm6h,0.0
+Flotation Column 06 Air Flow__mean__ewm6h,0.0
+Flotation Column 05 Air Flow__mean__ewm6h,0.0
+% Silica Feed__slope3h,0.0
+cross_air_flow_mean,0.0
+cross_level_mean,0.0
+cross_air_flow_max,0.0
+cross_level_max,0.0
+Ore Pulp pH__min,0.0
+Ore Pulp pH__mean,0.0
+Ore Pulp Flow__min,0.0
+Flotation Column 03 Air Flow__mean__roll6h_mean,-3.3306690738754695e-17
+Flotation Column 03 Level__mean__lag1h,-4.4408920985006264e-17
+Flotation Column 07 Level__mean__slope3h,-7.771561172376095e-17
+Starch Flow__mean__roll6h_mean,-1.9734823990535945e-07
+Ore Pulp Density__mean__lag1h,-4.313004215439342e-07
+Flotation Column 02 Level__mean__lag2h,-7.046019998457886e-07
+Ore Pulp Flow__mean,-2.760446745098122e-06
+Flotation Column 02 Level__mean__roll3h_mean,-3.280396926896856e-06
+Starch Flow__mean__ewm12h,-3.4710629473355683e-06
+Ore Pulp pH__mean__ewm12h,-4.631511539954225e-06
+Flotation Column 05 Level__mean,-5.520893490218448e-06
+Flotation Column 05 Level__mean__diff1h,-6.8660572028034215e-06
+Flotation Column 06 Air Flow__std,-7.083982545541545e-06
+ratio_starch_pulp,-9.560252264761982e-06
+Flotation Column 03 Air Flow__mean__slope3h,-1.4300331139627253e-05
+Ore Pulp Flow__std,-1.6374063756929846e-05
+% Silica Concentrate__lagroll6h_mean,-1.7103678601015914e-05
+Flotation Column 04 Level__mean__ewm2h,-1.7964113181823115e-05
+Flotation Column 06 Level__std,-1.890746704888979e-05
+Ore Pulp Flow__mean__roll6h_mean,-1.983103129071795e-05
+Flotation Column 01 Air Flow__mean__ewm2h,-1.9910591165528402e-05
+Flotation Column 01 Air Flow__mean__lag3h,-2.0651199111620945e-05
+Flotation Column 01 Air Flow__mean,-2.6869994641209872e-05
+Flotation Column 05 Air Flow__std,-2.8540356378370378e-05
+Flotation Column 02 Air Flow__mean__roll3h_mean,-3.1681861235688394e-05
+Starch Flow__mean,-3.347526361062725e-05
+Flotation Column 04 Level__std,-4.0991250356270384e-05
+Flotation Column 06 Level__mean__diff1h,-4.284335424112884e-05
+Ore Pulp Density__mean__roll3h_mean,-4.366999198962551e-05
+Flotation Column 05 Air Flow__mean__lag3h,-4.378808788655375e-05
+Flotation Column 02 Air Flow__mean,-4.4037883193437376e-05
+Ore Pulp Flow__mean__slope3h,-5.0295076285666876e-05
+Flotation Column 02 Level__max,-5.579041661556428e-05
+Flotation Column 01 Level__mean__lag2h,-5.766088071790243e-05
+Starch Flow__min,-6.1027325576401556e-05
+Flotation Column 01 Level__mean__slope3h,-6.144426565730665e-05
+Flotation Column 06 Air Flow__mean__slope3h,-6.294248348566178e-05
+Flotation Column 02 Air Flow__mean__roll6h_mean,-6.328723336331831e-05
+Flotation Column 03 Level__max,-7.023521947915334e-05
+Flotation Column 03 Level__min,-7.031681813119972e-05
+cross_level_min,-7.360824374145203e-05
+Flotation Column 01 Air Flow__mean__lag1h,-7.968985341229029e-05
+Flotation Column 07 Level__std,-8.206588777218693e-05
+Ore Pulp Flow__mean__lag1h,-8.328339260473827e-05
+Ore Pulp pH__mean__ewm6h,-8.34556307120371e-05
+hour_cos,-8.374066562232274e-05
+Flotation Column 03 Air Flow__mean__lag3h,-9.699026398174437e-05
+Starch Flow__mean__slope3h,-9.82239242885763e-05
+Flotation Column 06 Level__mean__lag1h,-9.879745262323381e-05
+Flotation Column 05 Level__mean__ewm2h,-0.00010501526622536117
+Flotation Column 05 Level__max,-0.00010833619203483024
+Ore Pulp Density__mean__ewm2h,-0.0001142882880977969
+Flotation Column 05 Level__mean__lag2h,-0.00011908234103932269
+Ore Pulp Flow__mean__ewm2h,-0.00012785927788160344
+Flotation Column 07 Air Flow__mean__lag2h,-0.00013418338865068825
+Ore Pulp pH__std,-0.00013515982632856806
+Flotation Column 03 Level__mean__lag2h,-0.00014290067355751112
+Ore Pulp Density__mean__ewm6h,-0.00015524846042188622
+Flotation Column 01 Air Flow__max,-0.00016245862792659826
+Flotation Column 04 Level__mean__lag1h,-0.00017071586193052602
+cross_air_flow_std,-0.00020424024217187143
+Amina Flow__mean,-0.00020889757112558805
+Amina Flow__std,-0.00023466952479030966
+Ore Pulp Density__min,-0.00024248056042794897
+Flotation Column 04 Air Flow__std,-0.0002623519062478263
+Flotation Column 02 Air Flow__min,-0.00030554579134637325
+Amina Flow__max,-0.0003605563882504659
+% Silica Concentrate__lag3h,-0.00037788933980292816
+Amina Flow__mean__ewm2h,-0.0003807357745324924

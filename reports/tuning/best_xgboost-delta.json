@@ -1,0 +1,17 @@
+{
+  "family": "xgboost",
+  "representation": "delta",
+  "cv_mae_mean": 0.4351724237168667,
+  "cv_mae_std": 0.044064846750883895,
+  "params": {
+    "learning_rate": 0.01149070971227759,
+    "max_depth": 8,
+    "min_child_weight": 44.66958203871956,
+    "subsample": 0.5935538578790258,
+    "colsample_bytree": 0.7121664825226076,
+    "reg_alpha": 7.275871995577819,
+    "reg_lambda": 0.11356118184648713,
+    "n_estimators": 2500,
+    "early_stopping_rounds": 100
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "singles_val_mae": {
+    "lightgbm_delta": 0.38697276249654106,
+    "lightgbm_level": 0.4586097683577306,
+    "xgboost_delta": 0.3889600011739033,
+    "xgboost_level": 0.4541952479339734
+  },
+  "blend": {
+    "weights": {
+      "lightgbm_delta": 0.4666,
+      "lightgbm_level": 0.0,
+      "xgboost_delta": 0.4746,
+      "xgboost_level": 0.0588
+    },
+    "val_mae": 0.38697997513084575
+  },
+  "stacking": {
+    "coefs": {
+      "lightgbm_delta": 0.4718832734381907,
+      "lightgbm_level": -0.05580851138759054,
+      "xgboost_delta": 0.1235692954335455,
+      "xgboost_level": 0.3958139577525854
+    },
+    "val_mae": 0.4080930016235172
+  },
+  "best_single_val_mae": 0.38697276249654106,
+  "blend_rel_improvement_pct": -0.0018638609751669563,
+  "stack_rel_improvement_pct": -5.457810257941583
+}
