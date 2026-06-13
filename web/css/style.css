@@ -358,3 +358,16 @@ input[type="range"] {
 .hidden {
     display: none !important;
 }
+
+/* Contenedor de gráficos con altura fija: evita el bucle de redimensionado de Chart.js
+   (con maintainAspectRatio:false el canvas llena al padre; sin altura fija, crece sin control). */
+.chart-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 0.75rem;
+}
+
+.chart-box > canvas {
+    display: block;
+}
