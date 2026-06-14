@@ -107,6 +107,19 @@ def test_explain_returns_signed_sorted_contributions():
         assert isinstance(body["base_value"], float)
 
 
+def test_explain_labels_are_well_formed():
+    """Cada etiqueta legible debe tener los paréntesis cerrados y nada de guiones largos."""
+    with TestClient(app) as client:
+        body = client.post(
+            "/explain",
+            json={"features": {"% Silica Concentrate__lag1h": 2.0, "Amina Flow__mean": 500}},
+        ).json()
+        for contribution in body["contributions"]:
+            label = contribution["label"]
+            assert label.count("(") == label.count(")"), f"paréntesis desbalanceado: {label}"
+            assert "—" not in label
+
+
 def test_report_returns_structured_sections():
     with TestClient(app) as client:
         body = client.post("/report", json={"features": {}}).json()

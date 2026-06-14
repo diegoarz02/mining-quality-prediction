@@ -14,6 +14,7 @@ Lanzar siempre desde el venv del proyecto:  python -m uvicorn api.main:app
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -279,17 +280,65 @@ def _predict(df: pd.DataFrame) -> float:
     return float(STATE["model"].predict(df)[0])
 
 
-_LABELS = (("__roll", " (móvil "), ("__ewm", " (EWM "), ("__mean", " (media)"),
-           ("__std", " (desv.)"), ("__max", " (máx)"), ("__min", " (mín)"),
-           ("__lag1h", " (1h atrás)"), ("__lag2h", " (2h atrás)"), ("__lag3h", " (3h atrás)"))
+_AGG_LABEL = {"mean": "media", "std": "desv.", "min": "mín", "max": "máx"}
+
+# Features de ingeniería que no siguen el patrón base__agg__transform.
+_SPECIAL_LABEL = {
+    "hour_sin": "Hora del día (seno)",
+    "hour_cos": "Hora del día (coseno)",
+    "cross_air_flow_min": "Aire de columnas (mínimo entre columnas)",
+    "cross_level_std": "Nivel de columnas (dispersión entre columnas)",
+    "ratio_amina_pulp": "Ratio amina/pulpa",
+}
+
+
+def _transform_label(token: str, has_mean: bool) -> str:
+    """Frase legible para un sufijo de transformación temporal (sin paréntesis)."""
+    m = re.fullmatch(r"lag(\d+)h", token)
+    if m:
+        return f"{m.group(1)}h atrás"
+    m = re.fullmatch(r"(?:lag)?roll(\d+)h_(mean|std)", token)
+    if m:
+        kind = "media" if m.group(2) == "mean" else "desv."
+        return f"{kind} móvil {m.group(1)}h"
+    m = re.fullmatch(r"ewm(\d+)h", token)
+    if m:
+        return f"media, EWM {m.group(1)}h" if has_mean else f"EWM {m.group(1)}h"
+    m = re.fullmatch(r"diff(\d+)h", token)
+    if m:
+        return f"cambio {m.group(1)}h"
+    m = re.fullmatch(r"slope(\d+)h", token)
+    if m:
+        return f"pendiente {m.group(1)}h"
+    m = re.fullmatch(r"mom(\d+)h", token)
+    if m:
+        return f"momentum {m.group(1)}h"
+    return token.replace("_", " ")
 
 
 def _pretty(col: str) -> str:
-    """Etiqueta legible de planta para una columna de feature."""
-    label = col
-    for token, repl in _LABELS:
-        label = label.replace(token, repl)
-    return label
+    """Etiqueta de planta legible para una columna de feature.
+
+    Parsea el nombre por sus separadores ``__`` y arma una única anotación entre
+    paréntesis (p. ej. "media móvil 3h"), de modo que nunca queda un paréntesis sin
+    cerrar ni un sufijo de ventana colgando.
+    """
+    if col in _SPECIAL_LABEL:
+        return _SPECIAL_LABEL[col]
+
+    parts = col.split("__")
+    base, mods = parts[0], parts[1:]
+    if not mods:
+        return base
+
+    agg = _AGG_LABEL.get(mods[0])
+    transforms = mods[1:] if agg else mods
+    if not transforms:
+        return f"{base} ({agg})" if agg else base
+
+    has_mean = mods[0] == "mean"
+    note = ", ".join(_transform_label(t, has_mean) for t in transforms)
+    return f"{base} ({note})"
 
 
 def _build_explainer(model, cfg: dict):
