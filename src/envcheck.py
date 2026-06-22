@@ -19,7 +19,7 @@ def ensure_dependencies(modules: list[str]) -> None:
         "\n[Error de entorno] Faltan dependencias: " + ", ".join(missing) + ".\n"
         f"Este proceso está corriendo con: {sys.executable}\n"
         "Lo más probable es que el venv del proyecto no esté activado. Solución:\n"
-        "  1. Activar el venv:  C:\\venvs\\minsur\\Scripts\\activate\n"
+        "  1. Activar el venv del proyecto:  .venv\\Scripts\\activate  (Windows)  /  source .venv/bin/activate\n"
         "  2. Instalar dependencias si faltan:  pip install -r requirements.txt\n"
         "  3. Lanzar siempre con el python del venv, por ejemplo:\n"
         "       python -m uvicorn api.main:app\n"
